@@ -3,9 +3,9 @@ Final Project for the OIM3600 Course
 
 
 1. Project Overview
-The web application is designed to provide users with a dynamic and interactive platform to explore and visualize city and town statistics. By applying customizable filters, users can view relevant data directly on an interactive map. The integration of the Llama 3.2 large language model enhances user experience by enabling conversational filtering, where users can refine their criteria through natural language interactions.
+Townhunter is designed to provide users with a dynamic and interactive platform to explore and visualize city and town statistics. By applying customizable filters, users can view relevant data directly on an interactive map. The integration of the Llama 3.2 large language model enhances user experience by enabling conversational filtering, where users can refine their criteria through natural language interactions.
 
-2. Usage Guidelines
+3. Usage Guidelines
 Accessing the Platform:
 Open the web application in any modern browser.
 
