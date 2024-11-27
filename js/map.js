@@ -6,6 +6,11 @@ let tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+// add markers to the map (can use this to display cities?)
+L.marker([37.8, -96]).addTo(map)
+    .bindPopup('This is a city')
+    .openPopup();
+
 // initialize state data
 // L.geoJson(statesData).addTo(map);
 
@@ -14,7 +19,7 @@ document.getElementById('map-reset').addEventListener('click', function() {
     map.setView([37.8, -96], 4);
 });
 
-// ChatGPT Share Feature
+// Share Feature by Chatgpt
 // document.getElementById('share-btn').addEventListener('click', function() {
 //     const center = map.getCenter();
 //     const zoom = map.getZoom();
