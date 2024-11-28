@@ -33,8 +33,8 @@ AI and NLP:
 Llama 3.2 Large Language Model (If time allows)
 
 APIs:
-Open Data Platforms: U.S. Census Bureau, World Bank, Eurostat, etc.
-Geocoding APIs for mapping coordinates to city/town names.
+Open Data Platforms: U.S. Census Bureau
+Geocoding API for mapping county names to lat/long coordinates
 
 4. Project Structure
 
