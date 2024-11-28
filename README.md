@@ -4,18 +4,18 @@ Final Project for the OIM3600 Course
 
 1. Project Overview:
    
-Townhunter is designed to provide users with a dynamic and interactive platform to explore and visualize city and town statistics. By applying customizable filters, users can view relevant data directly on an interactive map. The integration of the Llama 3.2 large language model enhances user experience by enabling conversational filtering, where users can refine their criteria through natural language interactions.
+Homefinder is designed to provide users with a dynamic and interactive platform to explore and visualize metropolitan statistical area statistics. By applying customizable filters, users can view relevant data directly on an interactive map. The future integration of the Llama 3.2 large language model enhances user experience by enabling conversational filtering, where users can refine their criteria through natural language interactions.
 
 2. Usage Guidelines
 
 Accessing the Platform:
 Open the web application in any modern browser.
 
-Select predefined filters (e.g., population size, crime rate, climate) from dropdowns or sliders.
-Use the integrated chat feature powered by Llama 3.2 to adjust filters conversationally. Example: “Show me cities with a population over 100,000 and low crime rates.”
+Select predefined filters (e.g., population size, commitability, home availability, income) from dropdowns or sliders.
+Use the integrated chat feature powered by Llama 3.2 to adjust filters conversationally. Example: “Show me cities with a population over 100,000 and with more than 10% vacant homes".
 
 Viewing Results:
-A dynamic map updates in real time to display cities/towns matching the selected criteria.
+A dynamic map updates in real time to display areas matching the selected criteria.
 
 3. Dependencies
 
@@ -27,7 +27,7 @@ Bootstrap: For styling the application.
 Backend:
 FastAPI for API handling.
 
-SQLite for persistent data storage
+SQLite for persistent data storage (Maybe)
 
 AI and NLP:
 Llama 3.2 Large Language Model (If time allows)
