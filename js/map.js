@@ -1,4 +1,8 @@
-let map = L.map('map').setView([37.8, -96], 4);
+const lat = 42
+const long = -73
+const zoom = 6
+
+let map = L.map('map').setView([lat, long], zoom);
 
 // OpenStreetMap, openstreetmap.org/copyright
 let tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -6,8 +10,8 @@ let tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// add markers to the map (can use this to display cities?)
-L.marker([37.8, -96]).addTo(map)
+// add markers to the map (can use this to display locations!)
+L.marker([lat, long]).addTo(map)
     .bindPopup('This is a city')
     .openPopup();
 
@@ -16,7 +20,7 @@ L.marker([37.8, -96]).addTo(map)
 
 // reset the map view
 document.getElementById('map-reset').addEventListener('click', function() {
-    map.setView([37.8, -96], 4);
+    map.setView([lat, long], zoom);
 });
 
 // Share Feature by Chatgpt
