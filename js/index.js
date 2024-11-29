@@ -1,12 +1,12 @@
 const incomeSlider = document.getElementById('incomeFilter');
 const incomeValue = document.getElementById('incomeValue');
-const populationSlider = document.getElementById('populationFilter');
-const populationValue = document.getElementById('populationValue');
+const vacanthomesSlider = document.getElementById('vacanthomesFilter');
+const vacanthomesValue = document.getElementById('vacanthomesValue');
 
 incomeSlider.addEventListener('input', () => {
   incomeValue.textContent = parseInt(incomeSlider.value).toLocaleString();
 });
 
-populationSlider.addEventListener('input', () => {
-  populationValue.textContent = populationSlider.value;
+vacanthomesSlider.addEventListener('input', () => {
+  vacanthomesValue.textContent = vacanthomesSlider.value;
 });

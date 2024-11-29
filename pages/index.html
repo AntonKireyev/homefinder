@@ -77,7 +77,9 @@
             <form id="filterForm">
               <!-- Region Filter -->
               <div class="mb-4">
-                <label for="granularityFilter" class="form-label">Granularity</label>
+                <label for="granularityFilter" class="form-label"
+                  >Granularity</label
+                >
                 <div>
                   <select class="form-select" id="granularityFilter">
                     <option value="msa" selected>Metropolitan Areas</option>
@@ -87,35 +89,36 @@
                   </select>
                 </div>
               </div>
-              <!-- Population Filter -->
+              <!-- Vacant Homes Filter -->
               <div class="mb-4">
-                <label for="populationFilter" class="form-label"
-                  >Population</label
+                <label for="vacanthomesFilter" class="form-label"
+                  >Minimum Vacant Homes %</label
                 >
                 <div>
                   <input
                     type="range"
                     class="form-range"
-                    id="populationFilter"
-                    min="0"
-                    max="1000000"
-                    step="10000"
-                    value="0"
+                    id="vacanthomesFilter"
+                    min="3"
+                    max="58"
+                    step="1"
+                    value="3"
                   />
                 </div>
                 <div class="d-flex justify-content-between">
-                  <small>0</small>
-                  <small>1M+</small>
+                  <small>3%</small>
+                  <small>58%</small>
                 </div>
 
                 <small class="text-muted"
-                  >Population: <span id="populationValue">0</span></small
+                  >Minimum Vacant Homes (%):
+                  <span id="vacanthomesValue">0</span></small
                 >
               </div>
               <!-- Median Income Filter -->
               <div class="mb-4">
                 <label for="incomeFilter" class="form-label"
-                  >Median Income</label
+                  >Expected Income</label
                 >
                 <div>
                   <input
@@ -123,27 +126,27 @@
                     class="form-range"
                     id="incomeFilter"
                     min="0"
-                    max="200000"
-                    step="5000"
-                    value="0"
+                    max="100000"
+                    step="1000"
+                    value="100000"
                   />
                 </div>
 
                 <div class="d-flex justify-content-between">
                   <small>0</small>
-                  <small>200K+</small>
+                  <small>100K+</small>
                 </div>
                 <small class="text-muted"
-                  >Median Income: $<span id="incomeValue">0</span></small
+                  >Area Median Income: $<span id="incomeValue">100,000+</span></small
                 >
               </div>
-              <!-- Crime Rate Filter -->
+              <!-- Unemployed Filter -->
               <div class="mb-4">
-                <label for="crimeRateFilter" class="form-label"
-                  >Crime Rate</label
+                <label for="UnemployedFilter" class="form-label"
+                  >Unemployment Rate</label
                 >
                 <div>
-                  <select class="form-select" id="crimeRateFilter">
+                  <select class="form-select" id="UnemployedFilter">
                     <option value="any" selected>Any</option>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
@@ -151,31 +154,31 @@
                   </select>
                 </div>
               </div>
-              <!-- Education Filter -->
+              <!-- Travel Time Filter -->
               <div class="mb-4">
-                <label for="educationFilter" class="form-label"
-                  >Education Level</label
+                <label for="traveltimeFilter" class="form-label"
+                  >Travel Time</label
                 >
                 <div>
-                  <select class="form-select" id="educationFilter">
+                  <select class="form-select" id="traveltimeFilter">
                     <option value="any" selected>Any</option>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
+                    <option value="low">Low (&lt 20min)</option>
+                    <option value="medium">Medium (20-30min)</option>
+                    <option value="high">High (&gt 30min)</option>
                   </select>
                 </div>
               </div>
-              <!-- Healthcare Filter -->
+              <!-- Remote Working Filter -->
               <div class="mb-4">
-                <label for="healthcareFilter" class="form-label"
-                  >Healthcare Accessibility</label
+                <label for="remoteFilter" class="form-label"
+                  >Remote Working Population</label
                 >
                 <div>
-                  <select class="form-select" id="healthcareFilter">
+                  <select class="form-select" id="remoteFilter">
                     <option value="any" selected>Any</option>
-                    <option value="poor">Poor</option>
-                    <option value="average">Average</option>
-                    <option value="excellent">Excellent</option>
+                    <option value="low">Low (&lt 5%)</option>
+                    <option value="medium">Medium (5-10%)</option>
+                    <option value="high">High (&gt 10%)</option>
                   </select>
                 </div>
               </div>
@@ -230,14 +233,6 @@
                   <th>Travel Time to Work</th>
                   <th>Median Household Income</th>
                   <th>Median Individual Income</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-
-                  
-                  msa,Population,Unemployment (%),Remote (%),Travel_Time,Household_Income,Worker_Income,msa_id,latitude,longitude,Total_Homes,Occupied_Homes,Vacant_Homes
                 </tr>
               </thead>
               <tbody>
@@ -248,12 +243,6 @@
                   <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
                 </tr>
@@ -264,12 +253,6 @@
                   <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
                 </tr>
@@ -280,12 +263,6 @@
                   <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
                 </tr>
@@ -296,12 +273,6 @@
                   <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
                 </tr>
@@ -312,12 +283,56 @@
                   <td>dolor</td>
                   <td>sit</td>
                   <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
                 </tr>
                 <tr>
                   <td>1</td>
                   <td>Lorem</td>
                   <td>ipsum</td>
                   <td>dolor</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                  <td>sit</td>
                   <td>sit</td>
                   <td>sit</td>
                 </tr>
