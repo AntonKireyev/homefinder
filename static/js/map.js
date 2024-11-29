@@ -1,6 +1,6 @@
-const lat = 42
-const long = -73
-const zoom = 6
+let lat = 40
+let long = -98
+let zoom = 6
 
 let map = L.map('map').setView([lat, long], zoom);
 

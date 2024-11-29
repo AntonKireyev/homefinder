@@ -3,79 +3,106 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import pandas as pd
 import uvicorn
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
-templates = Jinja2Templates("pages")
+# Set up template rendering
+templates = Jinja2Templates(directory="pages")
 
-# Load the data
-census_data = pd.read_csv("data/clean/combined.csv")
+# Serve static files (CSS, JS, etc.)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-
-@app.get("/", response_class=HTMLResponse)
-def homepage(request: Request):
-    return {
-        "request": request,
-    }
+# Load the CSV file for data
+df = pd.read_csv("data/clean/combined.csv")
 
 
-# async def filter_data(request: Request):
-#     form = await request.form()
-#     vacant_homes = form.get("vacant_homes")
-#     income = form.get("income")
-#     unemployment = form.get("unemployment")
-#     travel = form.get("travel")
-#     remote = form.get("remote")
-
-#     # Filter the data using the form inputs
-#     filtered_data = census_data[
-#         (census_data["vacant_homes"] >= vacant_homes)
-#         & (census_data["Worker_Income"] <= income)
-#         & (census_data["Unemployment (%)"] <= unemployment)
-#         & (census_data["Travel_Time"] <= travel)
-#         & (census_data["Remote (%)"] >= remote)
-#     ]
-
-#     filtered_data = filtered_data.head(10).to_dict(orient="records")
-
-#     # Return the filtered data in the template
-#     return templates.TemplateResponse(
-#         "pages/index.html",
-#         {
-#             "request": request,
-#             "data": filtered_data,
-#         },
-#     )
+@app.get("/")
+async def home(
+    request: Request,
+    income: int = 100000,  # Default values for filters
+    vacant_homes: float = 3.0,
+    unemployment: float = 13.0,
+    travel: int = 35,
+    remote: float = 0.0,
+):
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": df.to_dict(orient="records"),
+            "income": income,
+            "vacant_homes": vacant_homes,
+            "unemployment": unemployment,
+            "travel": travel,
+            "remote": remote,
+        },
+    )
 
 
-# # @app.post("pages/index.html", response_class=HTMLResponse)
-# # async def filter_data(request: Request):
-# #     form = await request.form()
-# #     vacant_homes = form.get("vacant_homes")
-# #     income = form.get("income")
-# #     unemployment = form.get("unemployment")
-# #     travel = form.get("travel")
-# #     remote = form.get("remote")
+@app.get("/index.html")
+async def home(
+    request: Request,
+    income: int = 100000,  # Default values for filters
+    vacant_homes: float = 3.0,
+    unemployment: float = 13.0,
+    travel: int = 35,
+    remote: float = 0.0,
+):
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": df.to_dict(orient="records"),
+            "income": income,
+            "vacant_homes": vacant_homes,
+            "unemployment": unemployment,
+            "travel": travel,
+            "remote": remote,
+        },
+    )
 
-# #     # Filter the data using the form inputs
-# #     filtered_data = census_data[
-# #         (census_data["vacant_homes"] >= vacant_homes)
-# #         & (census_data["Worker_Income"] <= income)
-# #         & (census_data["Unemployment (%)"] <= unemployment)
-# #         & (census_data["Travel_Time"] <= travel)
-# #         & (census_data["Remote (%)"] >= remote)
-# #     ]
 
-# #     filtered_data = filtered_data.head(10).to_dict(orient="records")
+@app.get("/about.html")
+async def home(request: Request):
+    return templates.TemplateResponse(
+        "about.html",
+        {
+            "request": request,
+        },
+    )
 
-# #     # Return the filtered data in the template
-# #     return templates.TemplateResponse(
-# #         "pages/index.html",
-# #         {
-# #             "request": request,
-# #             "data": filtered_data,
-# #         },
-# #     )
+
+@app.get("/homefinder")
+async def homefinder(
+    request: Request,
+    income: int = 100000,  # Default values for filters
+    vacant_homes: float = 3.0,
+    unemployment: float = 13.0,
+    travel: int = 35,
+    remote: float = 0.0,
+):
+    # Apply filters to the dataframe
+    filtered_data = df[
+        (df["Vacant_Homes_Percent"] >= vacant_homes)
+        & (df["Worker_Income"] <= income)
+        & (df["Unemployment (%)"] <= unemployment)
+        & (df["Travel_Time"] <= travel)
+        & (df["Remote (%)"] >= remote)
+    ]
+
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "data": filtered_data.to_dict(orient="records"),
+            "income": income,
+            "vacant_homes": vacant_homes,
+            "unemployment": unemployment,
+            "travel": travel,
+            "remote": remote,
+        },
+    )
 
 
 if __name__ == "__main__":
