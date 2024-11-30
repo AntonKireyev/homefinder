@@ -27,10 +27,10 @@ Bootstrap: For styling the application.
 Backend:
 FastAPI for API handling.
 
-SQLite for persistent data storage (Maybe)
+<i> SQLite for persistent data storage (Maybe) </i>
 
 AI and NLP:
-Llama 3.2 Large Language Model (If time allows)
+<i> Llama 3.2 Large Language Model (If time allows) </i>
 
 APIs:
 Open Data Platforms: U.S. Census Bureau

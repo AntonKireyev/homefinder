@@ -1,9 +1,10 @@
 from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 import pandas as pd
 import uvicorn
 from fastapi.staticfiles import StaticFiles
+import json
 
 app = FastAPI()
 
@@ -15,9 +16,27 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Load the CSV file for data
 df = pd.read_csv("data/clean/combined.csv")
-df = df.sort_values(by='Population', ascending=False)
+df = df.sort_values(by="Population", ascending=False)
 sampledf = df.head(10)
 
+def apply_filters(
+    income: int,
+    vacant_homes: float,
+    unemployment: float,
+    travel: int,
+    remote: float,
+):
+    # Apply filters to the dataframe
+    filtered_data = df[
+        (df["Vacant_Homes_Percent"] >= vacant_homes)
+        & (df["Worker_Income"] <= income)
+        & (df["Unemployment (%)"] <= unemployment)
+        & (df["Travel_Time"] <= travel)
+        & (df["Remote (%)"] >= remote)
+    ]
+
+    # Limit the result to the top 10
+    return filtered_data.head(10)
 
 @app.get("/")
 async def home(
@@ -85,15 +104,7 @@ async def homefinder(
     remote: float = 0.0,
 ):
     # Apply filters to the dataframe
-    filtered_data = df[
-        (df["Vacant_Homes_Percent"] >= vacant_homes)
-        & (df["Worker_Income"] <= income)
-        & (df["Unemployment (%)"] <= unemployment)
-        & (df["Travel_Time"] <= travel)
-        & (df["Remote (%)"] >= remote)
-    ]
-
-    filtered_data = filtered_data.head(10)
+    filtered_data = apply_filters(income, vacant_homes, unemployment, travel, remote)
 
     return templates.TemplateResponse(
         "index.html",
@@ -107,6 +118,11 @@ async def homefinder(
             "remote": remote,
         },
     )
+
+# doesn't work - only uses default values, not dynamic.
+@app.get("/homefinder/data")
+def get_data():
+    return JSONResponse(sampledf.to_dict(orient="records"))
 
 
 if __name__ == "__main__":
