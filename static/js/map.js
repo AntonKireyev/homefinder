@@ -1,19 +1,13 @@
-let lat = 40
-let long = -98
-let zoom = 6
+let lat = 37.7749
+let long = -122.4194
+let zoom = 5
 
-let map = L.map('map').setView([lat, long], zoom);
+// assisted by chatGPT
 
-// OpenStreetMap, openstreetmap.org/copyright
-let tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-// add markers to the map (can use this to display locations!)
-L.marker([lat, long]).addTo(map)
-    .bindPopup('This is a city')
-    .openPopup();
+// // add markers to the map (can use this to display locations!)
+// L.marker([lat, long]).addTo(map)
+//     .bindPopup('This is a city')
+//     .openPopup();
 
 // initialize state data
 // L.geoJson(statesData).addTo(map);
@@ -23,23 +17,56 @@ document.getElementById('map-reset').addEventListener('click', function() {
     map.setView([lat, long], zoom);
 });
 
-// Share Feature by Chatgpt
-// document.getElementById('share-btn').addEventListener('click', function() {
-//     const center = map.getCenter();
-//     const zoom = map.getZoom();
-//     const filters = {
-//         population: document.getElementById('populationFilter').value,
-//         education: document.getElementById('educationFilter').value,
-//     };
-//     const queryParams = new URLSearchParams({
-//         lat: center.lat,
-//         lng: center.lng,
-//         zoom: zoom,
-//         ...filters,
-//     }).toString();
 
-//     const shareableUrl = `${window.location.origin}?${queryParams}`;
-//     navigator.clipboard.writeText(shareableUrl).then(() => {
-//         alert('Map link copied to clipboard!');
-//     });
-// });
+ // Initialize the map
+ let map = L.map('map').setView([lat, long], zoom);
+
+
+ // OpenStreetMap, openstreetmap.org/copyright
+ let tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+ // Function to add markers based on data
+ function addMarkers(data) {
+   // Remove any existing markers
+   if (window.markers) {
+     window.markers.forEach(marker => map.removeLayer(marker));
+   }
+   window.markers = [];
+
+   // Add new markers
+   data.forEach(location => {
+     if (location.latitude && location.longitude) {
+       const marker = L.marker([location.latitude, location.longitude]).addTo(map);
+       marker.bindPopup(`
+         <b>${location.msa}</b><br>
+         Population: ${location.Population}<br>
+         Median Income: $${location.Household_Income.toLocaleString()}<br>
+         Vacant Homes: ${location.Vacant_Homes_Percent}%
+       `);
+       window.markers.push(marker);
+     }
+   });
+ }
+
+ // Initial marker setup
+ document.addEventListener('DOMContentLoaded', () => {
+   const initialData = {{ data|tojson }};
+   addMarkers(initialData);
+ });
+
+ // Update map markers dynamically when filters are applied
+ document.getElementById('filterForm').addEventListener('submit', event => {
+   event.preventDefault(); // Prevent default form submission
+   const formData = new FormData(event.target);
+   const queryString = new URLSearchParams(formData).toString();
+
+   fetch(`/homefinder?${queryString}`)
+     .then(response => response.json())
+     .then(filteredData => {
+       addMarkers(filteredData);
+     })
+     .catch(error => console.error('Error fetching data:', error));
+ });

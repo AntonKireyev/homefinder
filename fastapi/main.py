@@ -15,6 +15,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Load the CSV file for data
 df = pd.read_csv("data/clean/combined.csv")
+df = df.sort_values(by='Population', ascending=False)
+sampledf = df.head(10)
 
 
 @app.get("/")
@@ -30,7 +32,7 @@ async def home(
         "index.html",
         {
             "request": request,
-            "data": df.to_dict(orient="records"),
+            "data": sampledf.to_dict(orient="records"),
             "income": income,
             "vacant_homes": vacant_homes,
             "unemployment": unemployment,
@@ -53,7 +55,7 @@ async def home(
         "index.html",
         {
             "request": request,
-            "data": df.to_dict(orient="records"),
+            "data": sampledf.to_dict(orient="records"),
             "income": income,
             "vacant_homes": vacant_homes,
             "unemployment": unemployment,
@@ -90,6 +92,8 @@ async def homefinder(
         & (df["Travel_Time"] <= travel)
         & (df["Remote (%)"] >= remote)
     ]
+
+    filtered_data = filtered_data.head(10)
 
     return templates.TemplateResponse(
         "index.html",

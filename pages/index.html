@@ -267,42 +267,40 @@
           </div>
 
           <!-- Map Display -->
-          <!-- <canvas class="my-4" id="map" width="900" height="380"></canvas> -->
           <div class="my-4" id="map">The map!</div>
+          <!-- Table -->
+          <h2>🐱‍💻 More Data</h2>
+          <div class="table-responsive pt-2">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>MSA</th>
+                  <th>Population</th>
+                  <th>Vacant Homes (%)</th>
+                  <th>Unemployed (%)</th>
+                  <th>Remote Workers (%)</th>
+                  <th>Travel Time to Work (min)</th>
+                  <th>Median Household Income ($)</th>
+                  <th>Median Individual Income ($)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in data %}
+                <tr>
+                  <td>{{ row["msa"] }}</td>
+                  <td>{{ "{:,}".format(row["Population"]) }}</td>
+                  <td>{{ "{:.2f}".format(row["Vacant_Homes_Percent"]) }}%</td>
+                  <td>{{ row["Unemployment (%)"] }}%</td>
+                  <td>{{ row["Remote (%)"] }}%</td>
+                  <td>{{ row["Travel_Time"] }}</td>
+                  <td>${{ "{:,.2f}".format(row["Household_Income"]) }}</td>
+                  <td>${{ "{:,.2f}".format(row["Worker_Income"]) }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         </main>
-      </div>
-
-      <!-- Table -->
-      <div class="table-responsive">
-        <h2 class="mt-2">🐱‍💻 More Data</h2>
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>MSA</th>
-              <th>Vacant Homes (%)</th>
-              <th>Population</th>
-              <th>Unemployed (%)</th>
-              <th>Remote Workers (%)</th>
-              <th>Travel Time to Work (min)</th>
-              <th>Median Household Income ($)</th>
-              <th>Median Individual Income ($)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for row in data %}
-            <tr>
-              <td>{{ row["msa"] }}</td>
-              <td>{{ "{:.2f}".format(row["Vacant_Homes_Percent"]) }}%</td>
-              <td>{{ row["Population"] }}</td>
-              <td>{{ row["Unemployment (%)"] }}%</td>
-              <td>{{ row["Remote (%)"] }}%</td>
-              <td>{{ row["Travel_Time"] }}</td>
-              <td>${{ "{:,.2f}".format(row["Household_Income"]) }}</td>
-              <td>${{ "{:,.2f}".format(row["Worker_Income"]) }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
       </div>
     </div>
 

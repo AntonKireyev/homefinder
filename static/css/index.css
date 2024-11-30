@@ -6,6 +6,15 @@
     align-items: right;
 }
 
+.table-responsive {
+  max-height: 60vh; /* Allow a maximum height relative to the viewport */
+  overflow-y: auto; /* Add vertical scrolling if the table exceeds this height */
+}
+
+.table-striped {
+  width: 100%; /* Ensure the table spans the full width of its container */
+}
+
 /* #main-nav {
     background-color: #F2CEE6;
 } */
