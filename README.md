@@ -1,6 +1,7 @@
-# townhunter
+# Homefinder
 Final Project for the OIM3600 Course
 
+![image](https://github.com/user-attachments/assets/76ecf54d-311a-49c9-932f-6895618d11e8)
 
 1. Project Overview:
    
