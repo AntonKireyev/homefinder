@@ -19,6 +19,7 @@ df = pd.read_csv("data/clean/combined.csv")
 df = df.sort_values(by="Population", ascending=False)
 sampledf = df.head(10)
 
+
 def apply_filters(
     income: int,
     vacant_homes: float,
@@ -37,6 +38,7 @@ def apply_filters(
 
     # Limit the result to the top 10
     return filtered_data.head(10)
+
 
 @app.get("/")
 async def home(
@@ -119,10 +121,32 @@ async def homefinder(
         },
     )
 
-# doesn't work - only uses default values, not dynamic.
+
 @app.get("/homefinder/data")
-def get_data():
+async def get_map_data():
     return JSONResponse(sampledf.to_dict(orient="records"))
+
+
+# # doesn't work - only uses default values, not dynamic.
+# @app.get("/homefinder/data")
+# async def get_map_data(
+#     request: Request,
+#     income: int = 100000,  # Default values for filters
+#     vacant_homes: float = 3.0,
+#     unemployment: float = 13.0,
+#     travel: int = 35,
+#     remote: float = 0.0,
+# ):
+
+#     filtered_data = apply_filters(income, vacant_homes, unemployment, travel, remote)
+
+#     data = await homefinder(
+#         {
+#             "request": request,
+#             "data": filtered_data.to_dict(orient="records"),
+#         }
+#     )
+#     return JSONResponse(data["data"])
 
 
 if __name__ == "__main__":
