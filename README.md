@@ -112,3 +112,6 @@ Further Improvements: </br>
 * Implement SQLite or similar tool for persistent storage, letting users save their queries and search results.
 * Implement an AI assistant to help users build Queries or adjust parameters (Lamma/ChatGPT).
 * Rebuild UI and Filters, giving users more flexibility and more intuitive search parameters.
+* Create Export and Share functionality
+  * Export: Download CSV (of table data), Download PNG of Map Image
+  * Share: Share live site view directly (with filters applied), or create custom snapshot to share (social media platforms/link)
