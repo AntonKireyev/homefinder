@@ -80,11 +80,12 @@ Homefinder/
 ├── README.md           # Documentation and project overview 
 └── .gitignore          # Git ignore rules 
 </code>
+
 6. Acknowledgments
 
-* Census Data
-* Leaflet
-* Geocoding API
+* <a href="https://www.census.gov/"> Census Data </a>
+* <a href="https://leafletjs.com/index.html"> Leaflet </a>
+* <a href="https://geopy.readthedocs.io/en/stable/"> Geocoding API </a>
 
 6. Reflection
 
