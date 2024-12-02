@@ -28,6 +28,7 @@ def apply_filters(
     unemployment: float,
     travel: int,
     remote: float,
+    locations: int,
 ):
     """
     returns a pandas dataframe of locations that match the filters provided
@@ -52,7 +53,6 @@ def apply_filters(
     ]
 
     # Limit the result to the top N locations
-    locations = 20
     return filtered_data.head(locations)
 
 
@@ -64,6 +64,7 @@ async def home(
     unemployment: float = 13.0,
     travel: int = 35,
     remote: float = 0.0,
+    locations: int = 15,
 ):
     """
     updates the main webpage with the filtered data
@@ -85,7 +86,9 @@ async def home(
         remote: filter value
     """
 
-    filtered_data = apply_filters(income, vacant_homes, unemployment, travel, remote)
+    filtered_data = apply_filters(
+        income, vacant_homes, unemployment, travel, remote, locations
+    )
 
     return templates.TemplateResponse(
         "index.html",
@@ -98,6 +101,7 @@ async def home(
             "unemployment": unemployment,
             "travel": travel,
             "remote": remote,
+            "locations": locations,
         },
     )
 

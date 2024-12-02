@@ -75,24 +75,29 @@
           <div class="sidebar-sticky">
             <h3 class="my-3">Parameters</h3>
             <form id="filterForm" method="GET" action="">
-              <!-- Number of Loactions Filter -->
-              <!-- <div class="mb-4">
-                <label for="granularityFilter" class="form-label"
-                  >Sample Size</label
+              <!-- Number of Locations Filter -->
+              <div class="mb-4">
+                <label for="locationsFilter" class="form-label"
+                  >Number of Locations Shown (1-100)</label
                 >
                 <div>
-                  <select
+                  <input type="number" id="locationsFilter" name="locations" min="1" max="100" value="{{ locations }}">
+                  <!-- <select
                     class="form-select"
-                    id="granularityFilter"
-                    name="granularity"
+                    id="locationsFilter"
+                    name="locations"
                   >
-                    <option value="msa" selected>Metropolitan Areas</option>
-                    <option value="none">Not Available</option>
-                    <option value="none">Not Available</option>
-                    <option value="none">Not Available</option>
-                  </select>
+                    <option value="{{ locations }}" selected>
+                      {{locations}}
+                    </option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                  </select> -->
                 </div>
-              </div> -->
+              </div>
 
               <!-- Median Income Filter -->
               <div class="mb-4">
