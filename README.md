@@ -87,6 +87,7 @@ Homefinder/
 * <a href="https://www.census.gov/"> Census Data </a>
 * <a href="https://leafletjs.com/index.html"> Leaflet </a>
 * <a href="https://geopy.readthedocs.io/en/stable/"> Geocoding API </a>
+* <a href="https://getbootstrap.com/"> Bootstrap </a>
 * <a href="https://chatgpt.com/"> Chat GPT </a>
 
 6. <strong> Reflection: </strong>
