@@ -2,7 +2,8 @@
 
 Final Project for the OIM3600 Course
 
-![image](https://github.com/user-attachments/assets/76ecf54d-311a-49c9-932f-6895618d11e8)
+![image](https://github.com/user-attachments/assets/100b018e-0ada-40d7-bbe0-c37609f4791a)
+
 
 1. Project Overview:
 
@@ -40,6 +41,7 @@ Geocoding API for mapping county names to lat/long coordinates
 
 4. Project Structure
 
+<code>
 Homefinder/</br>
 │</br>
 ├── data/</br>
@@ -77,8 +79,8 @@ Homefinder/</br>
 ├── cleaning.ipynb      # notebook used to keep code samples for potential future use</br>
 ├── README.md           # Documentation and project overview</br>
 └── .gitignore          # Git ignore rules</br>
-
-5. Acknowledgments
+</code>
+6. Acknowledgments
 
 * Census Data
 * Leaflet
