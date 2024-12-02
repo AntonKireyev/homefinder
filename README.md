@@ -44,40 +44,40 @@ APIs:
 Homefinder/
 │
 ├── data/
-│ ├── clean/
-│ │     ├── combined.csv                    # Final dataset used, combines other clean datasets into one file 
-│ │     ├── geodf.csv                       # cleaned geographic information dataset, derived from MSA_REFERENCE.csv
-│ │     ├── housing.csv                     # cleaned housing data dataset, derived from MSA_HOUSING_UNITS.csv
-│ │     ├── labor.csv                       # cleaned labor data dataset, derived from MSA_LABOR_TRAVEL_INCOME.csv
-│ │     └── population.csv                  # cleaned population data dataset, derived from MSA_POP_HOUSING.csv
-│ └── raw/ 
-│       ├── MSA_HOUSING_UNITS.csv           # Raw housing data on the MSA level from the U.S Census 
-│       ├── MSA_LABOR_TRAVEL_INCOME.csv     # Raw emplyoment data on the MSA level from the U.S Census 
-│       ├── MSA_POP_HOUSING.csv             # Raw population and housing data on the MSA level from the U.S Census 
-│       └── MSA_REFERENCE.csv               # Raw geographic data on the county level from the U.S Census 
+│     ├── clean/
+│     │     ├── combined.csv                    # Final dataset used, combines other clean datasets into one file 
+│     │     ├── geodf.csv                       # cleaned geographic information dataset, derived from MSA_REFERENCE.csv
+│     │     ├── housing.csv                     # cleaned housing data dataset, derived from MSA_HOUSING_UNITS.csv
+│     │     ├── labor.csv                       # cleaned labor data dataset, derived from MSA_LABOR_TRAVEL_INCOME.csv
+│     │     └── population.csv                  # cleaned population data dataset, derived from MSA_POP_HOUSING.csv
+│     └── raw/ 
+│           ├── MSA_HOUSING_UNITS.csv           # Raw housing data on the MSA level from the U.S Census 
+│           ├── MSA_LABOR_TRAVEL_INCOME.csv     # Raw emplyoment data on the MSA level from the U.S Census 
+│           ├── MSA_POP_HOUSING.csv             # Raw population and housing data on the MSA level from the U.S Census 
+│           └── MSA_REFERENCE.csv               # Raw geographic data on the county level from the U.S Census 
 │ 
 ├── fastapi/ 
-│       └── main.py                         # Main FastAPI application 
+│       └── main.py                             # Main FastAPI application 
 │ 
 ├── pages/ 
-│       ├── index.html                      # Main landing page (with map and filters) 
-│       └── about.html                      # About page 
+│      ├── index.html                           # Main landing page (with map and filters) 
+│      └── about.html                           # About page 
 │ 
 ├── static/ 
-│ ├── css/ 
-│ │     ├── index.css                       # css for page styling 
-│ │     └── map.css                         # css for map styling 
-│ ├── js/ 
-│ │     ├── index.js                        # JavaScript to handle sliders and filter input values 
-│ │     └── map.js                          # JavaScript for map rendering and interactivity 
-│ └── assets/ 
-│       └── cityscape.ico                   # favicon 
+│       ├── css/ 
+│       │     ├── index.css                     # css for page styling 
+│       │     └── map.css                       # css for map styling 
+│       ├── js/ 
+│       │    ├── index.js                       # JavaScript to handle sliders and filter input values 
+│       │    └── map.js                         # JavaScript for map rendering and interactivity 
+│       └── assets/ 
+│             └── cityscape.ico                 # favicon 
 │ 
-├── census_api.ipynb                        # testing notebook for the census API (Not in Use) 
-├── cleaning.ipynb                          # notebook used for cleaning all the data found in data/raw 
-├── notes.ipynb                             # notebook used to keep code samples for potential future use 
-├── README.md                               # Documentation and project overview 
-└── .gitignore                              # Git ignore rules 
+├── census_api.ipynb                            # testing notebook for the census API (Not in Use) 
+├── cleaning.ipynb                              # notebook used for cleaning all the data found in data/raw 
+├── notes.ipynb                                 # notebook used to keep code samples for potential future use 
+├── README.md                                   # Documentation and project overview 
+└── .gitignore                                  # Git ignore rules 
 ```
 
 </br>
