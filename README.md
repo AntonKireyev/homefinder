@@ -5,13 +5,11 @@ Final Project for the OIM3600 Course
 ![image](https://github.com/user-attachments/assets/100b018e-0ada-40d7-bbe0-c37609f4791a)
 
 
-1. Project Overview:
-</br>
-Homefinder is designed to provide users with a dynamic and interactive platform to explore and visualize metropolitan statistical area statistics. By applying customizable filters, users can view relevant data directly on an interactive map. The future integration of the Llama 3.2 large language model enhances user experience by enabling conversational filtering, where users can refine their criteria through natural language interactions.
-</br>
+1. <strong> Project Overview: </strong> </br>
 
-2. Usage Guidelines
-</br>
+Homefinder is designed to provide users with a dynamic and interactive platform to explore and visualize metropolitan statistical area statistics. By applying customizable filters, users can view relevant data directly on an interactive map. The future integration of the Llama 3.2 large language model enhances user experience by enabling conversational filtering, where users can refine their criteria through natural language interactions.
+
+2. <strong> Usage Guidelines: </strong> </br>
 
 Accessing the Platform:</br>
 
@@ -22,7 +20,7 @@ Viewing Results:</br>
 * A dynamic map updates in real time to display areas matching the selected criteria.
 * A Table is also dynamically updated that matches the results shown on the map
 
-3. Dependencies
+3. <strong> Dependencies: </strong>
 
 Frontend:</br>
 
@@ -37,10 +35,10 @@ AI and NLP: </br>
 * <i> Llama 3.2 Large Language Model (If time allows) </i>
 
 APIs:
-Open Data Platforms: U.S. Census Bureau
-Geocoding API for mapping county names to lat/long coordinates
+* Open Data Platforms: U.S. Census Bureau
+* Geocoding API for mapping county names to lat/long coordinates
 
-4. Project Structure
+4. <strong> Project Structure: </strong>
 
 <code>
 Homefinder/
@@ -82,14 +80,16 @@ Homefinder/
 └── .gitignore          # Git ignore rules 
 </code>
 
-6. Acknowledgments
+</br>
+
+5. <strong> Acknowledgements: </strong>
 
 * <a href="https://www.census.gov/"> Census Data </a>
 * <a href="https://leafletjs.com/index.html"> Leaflet </a>
 * <a href="https://geopy.readthedocs.io/en/stable/"> Geocoding API </a>
 * <a href="https://chatgpt.com/"> Chat GPT </a>
 
-6. Reflection
+6. <strong> Reflection: </strong>
 
 What went well: </br>
 * Being able to integrade both front-end and back-end features, and actually create something that functions.
