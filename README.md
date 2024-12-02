@@ -6,34 +6,35 @@ Final Project for the OIM3600 Course
 
 
 1. Project Overview:
-
+</br>
 Homefinder is designed to provide users with a dynamic and interactive platform to explore and visualize metropolitan statistical area statistics. By applying customizable filters, users can view relevant data directly on an interactive map. The future integration of the Llama 3.2 large language model enhances user experience by enabling conversational filtering, where users can refine their criteria through natural language interactions.
+</br>
 
 2. Usage Guidelines
+</br>
 
-Accessing the Platform:
-Open the web application in any modern browser.
+Accessing the Platform:</br>
 
-Select predefined filters (e.g., population size, commitability, home availability, income) from dropdowns or sliders.
-Use the integrated chat feature powered by Llama 3.2 to adjust filters conversationally. Example: “Show me cities with a population over 100,000 and with more than 10% vacant homes".
+* Open the web application in any modern browser.
+* Select predefined filters (e.g., population size, commitability, home availability, income) from dropdowns or sliders.
 
-Viewing Results:
-A dynamic map updates in real time to display areas matching the selected criteria.
+Viewing Results:</br>
+* A dynamic map updates in real time to display areas matching the selected criteria.
+* A Table is also dynamically updated that matches the results shown on the map
 
 3. Dependencies
 
-Frontend:
+Frontend:</br>
 
-Leaflet.js: For rendering interactive maps.
-Bootstrap: For styling the application.
+* Leaflet.js: For rendering interactive maps.
+* Bootstrap: For styling the application.
 
-Backend:
-FastAPI for API handling.
+Backend:</br>
+* FastAPI for API handling.
+* <i> SQLite for persistent data storage (Maybe) </i>
 
-<i> SQLite for persistent data storage (Maybe) </i>
-
-AI and NLP:
-<i> Llama 3.2 Large Language Model (If time allows) </i>
+AI and NLP: </br>
+* <i> Llama 3.2 Large Language Model (If time allows) </i>
 
 APIs:
 Open Data Platforms: U.S. Census Bureau
@@ -86,6 +87,7 @@ Homefinder/
 * <a href="https://www.census.gov/"> Census Data </a>
 * <a href="https://leafletjs.com/index.html"> Leaflet </a>
 * <a href="https://geopy.readthedocs.io/en/stable/"> Geocoding API </a>
+* <a href="https://chatgpt.com/"> Chat GPT </a>
 
 6. Reflection
 
