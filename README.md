@@ -57,21 +57,21 @@ Homefinder/
 │       └── MSA_REFERENCE.csv               # Raw geographic data on the county level from the U.S Census 
 │ 
 ├── fastapi/ 
-│       └── main.py             # Main FastAPI application 
+│       └── main.py                         # Main FastAPI application 
 │ 
 ├── pages/ 
-│       ├── index.html          # Main landing page (with map and filters) 
-│       └── about.html          # About page 
+│       ├── index.html                      # Main landing page (with map and filters) 
+│       └── about.html                      # About page 
 │ 
 ├── static/ 
 │ ├── css/ 
-│ │     ├── index.css           # css for page styling 
-│ │     └── map.css             # css for map styling 
+│ │     ├── index.css                       # css for page styling 
+│ │     └── map.css                         # css for map styling 
 │ ├── js/ 
-│ │     ├── index.js            # JavaScript to handle sliders and filter input values 
-│ │     └── map.js              # JavaScript for map rendering and interactivity 
+│ │     ├── index.js                        # JavaScript to handle sliders and filter input values 
+│ │     └── map.js                          # JavaScript for map rendering and interactivity 
 │ └── assets/ 
-│       └── cityscape.ico       # favicon 
+│       └── cityscape.ico                   # favicon 
 │ 
 ├── census_api.ipynb    # testing notebook for the census API (Not in Use) 
 ├── cleaning.ipynb      # notebook used for cleaning all the data found in data/raw 
