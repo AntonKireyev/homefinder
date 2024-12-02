@@ -2,7 +2,7 @@
 
 Final Project for the OIM3600 Course
 
-![image](https://github.com/user-attachments/assets/100b018e-0ada-40d7-bbe0-c37609f4791a)
+![image](https://github.com/user-attachments/assets/6b782488-67d6-4eb9-9d66-b48a816c8d0e)
 
 
 1. <strong> Project Overview: </strong> </br>
