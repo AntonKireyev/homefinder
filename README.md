@@ -40,7 +40,8 @@ APIs:
 
 4. <strong> Project Structure: </strong>
 
-<code>Homefinder/
+```
+Homefinder/
 │
 ├── data/
 │ ├── clean/
@@ -77,7 +78,7 @@ APIs:
 ├── cleaning.ipynb      # notebook used to keep code samples for potential future use 
 ├── README.md           # Documentation and project overview 
 └── .gitignore          # Git ignore rules 
-</code>
+```
 
 </br>
 
