@@ -40,11 +40,11 @@ Geocoding API for mapping county names to lat/long coordinates
 
 4. Project Structure
 
-Homefinder/
-│
-├── data/
-│ ├── clean/
-│ │     ├── combined.csv # Final dataset used, combines other clean datasets into one file
+Homefinder/</br>
+│</br>
+├── data/</br>
+│ ├── clean/</br>
+│ │     ├── combined.csv # Final dataset used, combines other clean datasets into one file </br>
 │ │     ├── geodf.csv # cleaned geographic information dataset, derived from MSA_REFERENCE.csv
 │ │     ├── housing.csv # cleaned housing data dataset, derived from MSA_HOUSING_UNITS.csv
 │ │     ├── labor.csv # cleaned labor data dataset, derived from MSA_LABOR_TRAVEL_INCOME.csv
