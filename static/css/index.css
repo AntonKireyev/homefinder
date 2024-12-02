@@ -3,36 +3,27 @@
 }
 
 .form-select {
-    align-items: right;
-}
-
-.table-responsive {
-  max-height: 60vh; /* Allow a maximum height relative to the viewport */
-  overflow-y: auto; /* Add vertical scrolling if the table exceeds this height */
+  align-items: right;
 }
 
 .table-striped {
   width: 100%; /* Ensure the table spans the full width of its container */
 }
 
-/* #main-nav {
-    background-color: #F2CEE6;
-} */
-
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-    position: relative;
-    min-height: 100%;
-  }
-  body {
-    margin-bottom: 60px; /* Margin bottom by footer height */
-  }
-  .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px; /* Set the fixed height of the footer here */
-    line-height: 60px; /* Vertically center the text there */
-    background-color: #f5f5f5;
-  }
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}

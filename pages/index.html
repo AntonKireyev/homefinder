@@ -38,7 +38,7 @@
       class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
       id="main-nav"
     >
-      <a class="navbar-brand" href="#"><h3>Homefinder</h3></a>
+      <a class="navbar-brand" href="/"><h3>Homefinder</h3></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -74,11 +74,11 @@
         >
           <div class="sidebar-sticky">
             <h3 class="my-3">Parameters</h3>
-            <form id="filterForm" method="GET" action="/homefinder">
-              <!-- Region Filter -->
-              <div class="mb-4">
+            <form id="filterForm" method="GET" action="">
+              <!-- Number of Loactions Filter -->
+              <!-- <div class="mb-4">
                 <label for="granularityFilter" class="form-label"
-                  >Granularity</label
+                  >Sample Size</label
                 >
                 <div>
                   <select
@@ -87,12 +87,12 @@
                     name="granularity"
                   >
                     <option value="msa" selected>Metropolitan Areas</option>
-                    <!-- <option value="none">Not Available</option>
                     <option value="none">Not Available</option>
-                    <option value="none">Not Available</option> -->
+                    <option value="none">Not Available</option>
+                    <option value="none">Not Available</option>
                   </select>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Median Income Filter -->
               <div class="mb-4">
@@ -243,7 +243,7 @@
                 </button>
               </div>
             </form>
-            <a class="btn" href="index.html">Reset</a>
+            <a class="btn" href="/">Reset</a>
           </div>
         </nav>
 
@@ -320,7 +320,11 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-
+    <script>
+      // implemented with chatGPT assistance, not sure why it works but it does! hosts index.html with Json data for map.js to read.
+          let jsonData = {{ json_data|safe }};
+          console.log(jsonData);
+    </script>
     <script src="static/js/index.js"></script>
     <script src="static/js/map.js"></script>
   </body>

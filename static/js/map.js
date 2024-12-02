@@ -17,20 +17,26 @@ let tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
+// Create a LatLngBounds object to track all marker locations
+let bounds = L.latLngBounds();
 
-// Fetch the data from FastAPI
-fetch("/homefinder/data")
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((item) => {
-      const { msa, latitude, longitude, Population, Vacant_Homes_Percent } =
-        item;
-      const marker = L.marker([latitude, longitude]).addTo(map);
-      marker.bindPopup(`
-                        <strong>${msa}</strong><br>
-                        Population: ${Population.toLocaleString()}<br>
-                        Vacant Homes: ${Vacant_Homes_Percent.toFixed(2)}%
-                    `);
-    });
-  })
-  .catch((error) => console.error("Error:", error));
+// Add markers for each MSA
+jsonData.forEach((item) => {
+  const { msa, latitude, longitude, Population, Vacant_Homes_Percent } = item;
+
+  // Add marker to the map
+  const marker = L.marker([latitude, longitude]).addTo(map);
+  marker.bindPopup(`
+        <strong>${msa}</strong><br>
+        Population: ${Population.toLocaleString()}<br>
+        Vacant Homes: ${Vacant_Homes_Percent.toFixed(2)}%
+    `);
+
+  // Extend the bounds to include this marker's location
+  bounds.extend([latitude, longitude]);
+});
+
+// Adjust the map's viewport to include all markers
+map.fitBounds(bounds, {
+    padding: [10, 10] // Add padding in pixels to ensure markers are not on the edges
+  });

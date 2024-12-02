@@ -11,13 +11,15 @@ app = FastAPI()
 # Set up template rendering
 templates = Jinja2Templates(directory="pages")
 
-# Serve static files (CSS, JS, etc.)
+# Serve static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Load the CSV file for data
 df = pd.read_csv("data/clean/combined.csv")
-df = df.sort_values(by="Population", ascending=False)
-sampledf = df.head(10)
+# sorting the data by population to return the largest areas first.
+df = df.sort_values(
+    by="Population", ascending=False
+)  # can be changed in the future to let users choose the sorting method
 
 
 def apply_filters(
@@ -27,6 +29,19 @@ def apply_filters(
     travel: int,
     remote: float,
 ):
+    """
+    returns a pandas dataframe of locations that match the filters provided
+
+    Parameters:
+        income (int): filter input by user, indicates maximum median personal income
+        vacant_homes (float): filter input by user, indicates minimum % value of vacant homes
+        unemployment (float): filter input by user, indicates maximum unemplyoment %
+        travel (int): filter input by user, indicates maximum travel time to work (minutes)
+        remote (float): filter input by user, indicates minimum remote workers in the area (%).
+
+    Returns:
+        filtered_data.head(locations) (pandas dataframe): returns a dataframe of the top N locations (indicated by locations variable) by population given the filters
+    """
     # Apply filters to the dataframe
     filtered_data = df[
         (df["Vacant_Homes_Percent"] >= vacant_homes)
@@ -36,8 +51,9 @@ def apply_filters(
         & (df["Remote (%)"] >= remote)
     ]
 
-    # Limit the result to the top 10
-    return filtered_data.head(10)
+    # Limit the result to the top N locations
+    locations = 20
+    return filtered_data.head(locations)
 
 
 @app.get("/")
@@ -49,34 +65,34 @@ async def home(
     travel: int = 35,
     remote: float = 0.0,
 ):
+    """
+    updates the main webpage with the filtered data
+
+    Parameters:
+        income (int): filter input by user, indicates maximum median personal income
+        vacant_homes (float): filter input by user, indicates minimum % value of vacant homes
+        unemployment (float): filter input by user, indicates maximum unemplyoment %
+        travel (int): filter input by user, indicates maximum travel time to work (minutes)
+        remote (float): filter input by user, indicates minimum remote workers in the area (%).
+
+    Returns:
+        data: data used by table
+        json_data: data used by map
+        income: filter value
+        vacant_homes: filter value
+        unemployment: filter value
+        travel: filter value
+        remote: filter value
+    """
+
+    filtered_data = apply_filters(income, vacant_homes, unemployment, travel, remote)
+
     return templates.TemplateResponse(
         "index.html",
         {
             "request": request,
-            "data": sampledf.to_dict(orient="records"),
-            "income": income,
-            "vacant_homes": vacant_homes,
-            "unemployment": unemployment,
-            "travel": travel,
-            "remote": remote,
-        },
-    )
-
-
-@app.get("/index.html")
-async def home(
-    request: Request,
-    income: int = 100000,  # Default values for filters
-    vacant_homes: float = 3.0,
-    unemployment: float = 13.0,
-    travel: int = 35,
-    remote: float = 0.0,
-):
-    return templates.TemplateResponse(
-        "index.html",
-        {
-            "request": request,
-            "data": sampledf.to_dict(orient="records"),
+            "data": filtered_data.to_dict(orient="records"),
+            "json_data": filtered_data.to_json(orient="records"),
             "income": income,
             "vacant_homes": vacant_homes,
             "unemployment": unemployment,
@@ -88,65 +104,15 @@ async def home(
 
 @app.get("/about.html")
 async def home(request: Request):
+    """
+    returns the about page
+    """
     return templates.TemplateResponse(
         "about.html",
         {
             "request": request,
         },
     )
-
-
-@app.get("/homefinder")
-async def homefinder(
-    request: Request,
-    income: int = 100000,  # Default values for filters
-    vacant_homes: float = 3.0,
-    unemployment: float = 13.0,
-    travel: int = 35,
-    remote: float = 0.0,
-):
-    # Apply filters to the dataframe
-    filtered_data = apply_filters(income, vacant_homes, unemployment, travel, remote)
-
-    return templates.TemplateResponse(
-        "index.html",
-        {
-            "request": request,
-            "data": filtered_data.to_dict(orient="records"),
-            "income": income,
-            "vacant_homes": vacant_homes,
-            "unemployment": unemployment,
-            "travel": travel,
-            "remote": remote,
-        },
-    )
-
-
-@app.get("/homefinder/data")
-async def get_map_data():
-    return JSONResponse(sampledf.to_dict(orient="records"))
-
-
-# # doesn't work - only uses default values, not dynamic.
-# @app.get("/homefinder/data")
-# async def get_map_data(
-#     request: Request,
-#     income: int = 100000,  # Default values for filters
-#     vacant_homes: float = 3.0,
-#     unemployment: float = 13.0,
-#     travel: int = 35,
-#     remote: float = 0.0,
-# ):
-
-#     filtered_data = apply_filters(income, vacant_homes, unemployment, travel, remote)
-
-#     data = await homefinder(
-#         {
-#             "request": request,
-#             "data": filtered_data.to_dict(orient="records"),
-#         }
-#     )
-#     return JSONResponse(data["data"])
 
 
 if __name__ == "__main__":
