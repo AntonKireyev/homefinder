@@ -73,11 +73,11 @@ Homefinder/
 │ └── assets/ 
 │       └── cityscape.ico                   # favicon 
 │ 
-├── census_api.ipynb    # testing notebook for the census API (Not in Use) 
-├── cleaning.ipynb      # notebook used for cleaning all the data found in data/raw 
-├── cleaning.ipynb      # notebook used to keep code samples for potential future use 
-├── README.md           # Documentation and project overview 
-└── .gitignore          # Git ignore rules 
+├── census_api.ipynb                        # testing notebook for the census API (Not in Use) 
+├── cleaning.ipynb                          # notebook used for cleaning all the data found in data/raw 
+├── cleaning.ipynb                          # notebook used to keep code samples for potential future use 
+├── README.md                               # Documentation and project overview 
+└── .gitignore                              # Git ignore rules 
 ```
 
 </br>
