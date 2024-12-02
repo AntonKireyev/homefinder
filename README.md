@@ -40,7 +40,7 @@ APIs:
 
 4. <strong> Project Structure: </strong>
 
-<code> Homefinder/
+<code>Homefinder/
 │
 ├── data/
 │ ├── clean/
