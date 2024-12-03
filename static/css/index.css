@@ -10,6 +10,28 @@
   width: 100%; /* Ensure the table spans the full width of its container */
 }
 
+/* Hover effect */
+.custom-share-btn:hover {
+  background-color: #6c757d; /* Change background on hover */
+  color: white; /* Change text color on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+  transform: translateY(-2px); /* Slight lift */
+}
+
+/* Active/Clicked effect */
+.custom-share-btn:active {
+  background-color: #495057; /* Darker shade on click */
+  transform: translateY(0); /* Pressed-down effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow */
+}
+
+/* Feedback state for "Link Copied!" */
+.custom-share-btn.copied {
+  background-color: #28a745; /* Green for success */
+  color: white; /* Text color for success */
+  border-color: #28a745; /* Green border */
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
