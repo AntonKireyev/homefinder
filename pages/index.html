@@ -81,7 +81,7 @@
                   >Number of Locations Shown (1-100)</label
                 >
                 <div>
-                  <input type="number" id="locationsFilter" name="locations" min="1" max="100" value="{{ locations }}">
+                  <input type="number" id="locationsFilter" name="locations" min="1" max="100" value="{{ locations }}" required>
                   <!-- <select
                     class="form-select"
                     id="locationsFilter"
@@ -102,7 +102,7 @@
               <!-- Median Income Filter -->
               <div class="mb-4">
                 <label for="incomeFilter" class="form-label"
-                  >Expected Income</label
+                  >Median Income</label
                 >
                 <div>
                   <input
@@ -185,7 +185,7 @@
 
               <div class="mb-4">
                 <label for="travelFilter" class="form-label"
-                  >Travel Time (Minutes)</label
+                  >Travel Time to Work (Minutes)</label
                 >
                 <div>
                   <input

@@ -39,6 +39,7 @@ def apply_filters(
         unemployment (float): filter input by user, indicates maximum unemplyoment %
         travel (int): filter input by user, indicates maximum travel time to work (minutes)
         remote (float): filter input by user, indicates minimum remote workers in the area (%).
+        locations (int): filter input by user, indicates maximum number of locations shown.
 
     Returns:
         filtered_data.head(locations) (pandas dataframe): returns a dataframe of the top N locations (indicated by locations variable) by population given the filters
@@ -75,6 +76,7 @@ async def home(
         unemployment (float): filter input by user, indicates maximum unemplyoment %
         travel (int): filter input by user, indicates maximum travel time to work (minutes)
         remote (float): filter input by user, indicates minimum remote workers in the area (%).
+        locations (int): filter input by user, indicates maximum number of locations shown.
 
     Returns:
         data: data used by table
@@ -84,6 +86,7 @@ async def home(
         unemployment: filter value
         travel: filter value
         remote: filter value
+        locations: filter value
     """
 
     filtered_data = apply_filters(

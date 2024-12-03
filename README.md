@@ -99,7 +99,7 @@ What went well: </br>
 
 Challenges Faced: </br>
 * Connecting with data and being able to integrate it successfully. Use of APIs would have been preffered but given the scope of the project I was not able to integrate them in time.
-* Performing data management on census data was incredibly time-consuming, but was worth it for the end-result.
+* Performing data management on census data was incredibly time-consuming, but was worth it for the end-result and to get a functioning product.
 * Fast-API was interesting to work with, but I found that I still had a lot to learn about it's use-cases and how to use it well.
 * Project planning was a critical challenge that I faced, I had a large issue with my codebase and file management system.
 
